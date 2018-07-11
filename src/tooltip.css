@@ -1,0 +1,10 @@
+.tooltip-parent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tooltip-parent:hover .tooltip {
+  visibility: visible;
+  display: inline-block;
+}
