@@ -9,14 +9,15 @@ body {
     background: #eee;
 }
 #timeline {
-    width: 2000px;
+    width: 3000px;
     height: 250px;
     cursor: move;
+    padding-top: 100px;
+    position: relative;
 }
 .track {
     border-top: 1px solid red;
     border-bottom: 1px solid red;
-    margin-top: 100px;
 }
 .track:after {
     height: 0; 
@@ -48,20 +49,50 @@ body {
     position: absolute;
     width: 100px;
     left: -40px;
-    top: -40px;
+    top: -65px;
     text-align: center;
     background: white;
     border: 1px solid #ccc;
     font-size: 0.75em;
     border-radius: 5px;
-    padding: 2px;
+    padding: 10px 2px;
+    box-shadow: 1px 1px 1px #999;
 }
+
+/* I got lazy :/ */
+.node > .popup:after, .node > .popup:before {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.node > .popup:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: #ffffff;
+    border-width: 10px;
+    margin-left: -10px;
+}
+.node > .popup:before {
+    border-color: rgba(204, 204, 204, 0);
+    border-top-color: #999;
+    border-width: 11px;
+    margin-left: -11px;
+}
+
 .node > .popup > p {
     margin: 0;
     padding: 0;
 }
 .node:hover > .popup {
     visibility: visible; 
+}
+.node-with-data:hover {
+    background: #111;
 }
 
 .summer {
