@@ -8,9 +8,9 @@ import "./tooltip.css"
 const TimelineContainer = styled.section`
   display: grid;
   place-items: stretch;
-  grid-template-columns: [left] minmax(min-content, 6em) [left-content-edge] 1em [left-controls-start] 2em [left-controls-stop] auto [right-controls-start] 2em [right-controls-stop right-content-edge] 1em [right];
-  grid-template-rows: [top] 1em [topbar] auto [timeline-top] 1em [timeline-bottom] auto [bottom];
-  height: 200px;
+  grid-template-columns: [left] minmax(min-content, 6em) [left-content-edge] 1em [left-controls-start] 8em [left-controls-stop] auto [right-controls-start] 8em [right-controls-stop right-content-edge] 2em [right];
+  grid-template-rows: [top] 2em [topbar] auto [timeline-top] 1em [timeline-bottom] auto [bottom];
+  height: 250px;
   background-color: #f9f9f9;
 `;
 
@@ -63,6 +63,10 @@ const EventContainer = styled.li`
     content: "";
     transform: translateX(-50%);
   }
+
+  &:first-child {
+    margin-right: 2em;
+  }
 `;
 
 const TimelineBar = styled.div`
@@ -108,7 +112,7 @@ const ToolTip = styled.div`
   white-space: nowrap;
   font-size: .75em;
   color: #808080;
-  transform: translateX(-11px);
+  transform: translateX(-11px); /* gross! */
 
   &::after {
     content: " ";
@@ -123,6 +127,22 @@ const ToolTip = styled.div`
 
 `
 
+const ControlsLeft = styled.div`
+  grid-column: left-controls-start/left-controls-stop;
+  grid-row: top/topbar;
+  color: #808080;
+  font-size: .875em;
+  place-self: center;
+`
+
+const ControlsRight = styled.div`
+  grid-column: right-controls-start/right-controls-stop;
+  grid-row: top/topbar;
+  color: #808080;
+  font-size: .875em;
+  place-self: center;
+`
+
 function renderDateLabel(date) {
   const dayOfMonth = getDate(date);
   if (dayOfMonth === 1 || dayOfMonth % 5 === 0) {
@@ -131,9 +151,14 @@ function renderDateLabel(date) {
 }
 
 const Timeline = (props) => {
+  // real impl should use proptypes, assert that the date list is sorted
+  const endDate = props.dateRange[0].displayDate
+  const startDate = props.dateRange[props.dateRange.length - 1].displayDate
   return (
     <TimelineContainer>
       <LeftSection />
+      <ControlsLeft>|&lt; Start: {format(endDate, 'M/D/YY')}</ControlsLeft>
+      <ControlsRight>End: {format(endDate, 'M/D/YY')} &gt;|</ControlsRight>
       <YearLabel>
         {format(props.dateRange[0].displayDate, 'YYYY')}
       </YearLabel>
