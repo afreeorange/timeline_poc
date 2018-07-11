@@ -1,0 +1,91 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+#timeline-wrapper {
+    border: 1px solid #ccc;
+    height: 250px;
+    overflow-x: scroll;
+    overflow-y: none;
+    background: #eee;
+}
+#timeline {
+    width: 2000px;
+    height: 250px;
+    cursor: move;
+}
+.track {
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    margin-top: 100px;
+}
+.track:after {
+    height: 0; 
+    display: block; 
+    clear: both;
+    content: " "; 
+    visibility: hidden; 
+}
+.node {
+    width: 25px;
+    height: 25px;
+    background: #ccc;
+    position: relative;
+    float: left;
+    border-right: 1px solid #111;
+    cursor: pointer;
+}
+.node > .date {
+    width: 41px;
+    position: absolute;
+    font-size: 0.75em;
+    bottom: -20px;
+    left: -9px;
+    border: 1px dotted #000;
+    text-align: center;
+}
+.node > .popup {
+    visibility: hidden;
+    position: absolute;
+    width: 100px;
+    left: -40px;
+    top: -40px;
+    text-align: center;
+    background: white;
+    border: 1px solid #ccc;
+    font-size: 0.75em;
+    border-radius: 5px;
+    padding: 2px;
+}
+.node > .popup > p {
+    margin: 0;
+    padding: 0;
+}
+.node:hover > .popup {
+    visibility: visible; 
+}
+
+.summer {
+    background: yellow;
+}
+.winter {
+    background: blue;
+}
+
+#controls {
+    font-size: 0.75em;
+    clear: both;
+    padding: 0.5em;
+}
+#controls:after {
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    display: block; 
+    clear: both;
+}
+#ahead {
+    float: left;
+}
+#behind {
+    float: right;
+}
