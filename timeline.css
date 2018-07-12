@@ -4,14 +4,13 @@ body {
 }
 #timeline-wrapper {
     border: 1px solid #ccc;
-    height: 175px;
     overflow-x: scroll;
     overflow-y: hidden;
     background: #eee;
 }
 #timeline {
     width: 3000px;
-    height: 250px;
+    height: auto;
     cursor: move;
     padding-top: 100px;
     position: relative;
@@ -124,4 +123,8 @@ body {
 }
 #behind {
     float: right;
+}
+
+#graph-wrapper {
+    padding-top: 2em;
 }

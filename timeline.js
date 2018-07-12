@@ -1,4 +1,4 @@
-const scrollDuration = 900;
+const scrollDuration = 500;
 
 Math.easeInOutQuad = function (current_time, start_val, value_change, duration) {
     current_time /= duration/2;
@@ -15,7 +15,7 @@ function smoothScroll(element, to, duration) {
 
     let animateScroll = () => {        
         currentTime += increment;
-        var val = Math.easeInOutQuad(currentTime, start, change, duration);
+        let val = Math.easeInOutQuad(currentTime, start, change, duration);
         element.scrollLeft = val;
 
         if(currentTime < duration) {
@@ -60,3 +60,57 @@ document.getElementById('ahead').addEventListener('click', e => {
 document.getElementById('behind').addEventListener('click', e => {
     smoothScroll(document.getElementById('timeline-wrapper'), document.getElementById('timeline').getBoundingClientRect().width, scrollDuration);
 });
+
+
+// instantiate the graph
+// view-source:https://shutterstock.github.io/rickshaw/examples/lines.html
+var seriesData = [ [], [], [] ];
+var random = new Rickshaw.Fixtures.RandomData(150);
+
+for (var i = 0; i < 150; i++) {
+    random.addData(seriesData);
+}
+
+var graph = new Rickshaw.Graph( {
+    element: document.getElementById('graph-wrapper'),
+    width: document.getElementById('timeline').getBoundingClientRect().width,
+    height: 250,
+    renderer: 'line',
+    series: [
+        {
+            color: "#c05020",
+            data: seriesData[0],
+            name: 'Flibbity'
+        }, {
+            color: "#30c020",
+            data: seriesData[1],
+            name: 'Flabbity'
+        }, {
+            color: "#6060c0",
+            data: seriesData[2],
+            name: 'Floo!'
+        }
+    ]
+} );
+
+graph.render();
+
+var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+    graph: graph
+} );
+
+var legend = new Rickshaw.Graph.Legend( {
+    graph: graph,
+    element: document.getElementById('legend')
+
+} );
+
+var shelving = new Rickshaw.Graph.Behavior.Series.Toggle( {
+    graph: graph,
+    legend: legend
+} );
+
+var axes = new Rickshaw.Graph.Axis.Time( {
+    graph: graph
+} );
+axes.render();
