@@ -96,9 +96,6 @@ body {
     margin: 0;
     padding: 0;
 }
-.node:hover > .popup {
-    visibility: visible; 
-}
 .node-with-data:hover {
     background: #111;
 }
