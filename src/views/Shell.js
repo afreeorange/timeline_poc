@@ -23,23 +23,23 @@ const today = new Date('2018-07-12T08:00:00.000Z');
 const eventData = [...Array(50).keys()].filter(() => Math.random() > .15).map(idx => {
 	const datum = subDays(today, idx);
 	const dateString = datum.toLocaleDateString('en-US', {month:  'numeric', day: 'numeric'});
-	const cloudiness = Math.random();
+  const cloudiness = Math.random() / 2;
 
   return {
     x: datum,
     y: 1.25,
-    icon: cloudiness <= .3 ? 'cloud' : 'circle',
+    icon: cloudiness > .3 ? 'cloud' : 'circle',
 		label: `${dateString}\n ${Math.ceil(cloudiness * 100)}% cloud cover`,
   };
 });
 
-const rainData = [...Array(50).keys()].filter(() => Math.random() > .15).map(idx => {
+const rainData = [...Array(50).keys()].filter(() => Math.random() > .5).map(idx => {
   const datum = subDays(today, idx);
-  const precip = Math.random();
+  const precip = Math.ceil(Math.random()*3);
   return {
     x: datum,
-    y: precip,
-    label: `${Math.ceil(precip*3)} inches`
+    y: precip/3,
+    label: `${precip} inches`
   };
 });
 
@@ -52,7 +52,6 @@ const shell = () => {
       	  events={eventData}
       	  rainData={rainData}
       	  startDate={today}
-      	  history={30}
       	/>
       </TimelineWrapper>
     </Layout>

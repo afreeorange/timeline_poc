@@ -24,7 +24,7 @@ const AxisComponent = ({x1, y1, x2, y2, tick, style, events}) => {
   const mergeStyle = (newStyle) => Object.assign({}, style, newStyle);
   return (
     <g>
-      <line x1={x1} x2={x2} y1={y1} y2={y2} style={mergeStyle({stroke: "#e6e6e6", strokeWidth: "19"})}/>
+      <line x1={x1} x2={x2} y1={y1} y2={y2} style={mergeStyle({stroke: "#e6e6e6", strokeWidth: "19", strokeLinecap: "square"})}/>
       <line x1={x1} x2={x2} y1={y1} y2={y2} style={mergeStyle({stroke: "#fff", strokeWidth: "2"})}/>
     </g>
   );
@@ -91,7 +91,7 @@ class Timeline extends React.Component {
                     x: [subDays(startDate, this.state.zoomWindow), startDate],
                     y: [0, 1.25]
                   }}
-                  clipContainerComponent={<VictoryClipContainer clipPadding={{top: 10}}/>}
+                  clipContainerComponent={<VictoryClipContainer clipPadding={{top: 10, right: 11, left: 11}}/>}
                 />
                }
           >
