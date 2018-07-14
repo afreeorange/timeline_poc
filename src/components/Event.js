@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 
 // this one of the uglier bits, didn't want to eject the project and its not configured with a proper svg loader
 const icons = {

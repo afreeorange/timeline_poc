@@ -7,14 +7,19 @@ import {
   VictoryZoomContainer,
   VictoryClipContainer,
   VictoryTooltip,
-  VictoryGroup,
   Circle,
-  Line,
 } from 'victory';
 import { subDays, getDate } from 'date-fns';
 
 import Event from './Event';
+import TooltipThumb from './Tooltip'
 
+
+const flyoutStyle = {
+  fill: "#fff",
+  strokeWidth: 0,
+  filter: "drop-shadow(0 0 2px rgba(0,0,0,0.25))"
+}
 
 const TickMark = ({x1, y1, x2, y2, tick, style, events}) => {
   return (<Circle cx={x1} cy={y1} r={3} style={{fill: "#fff"}}/>)
@@ -127,7 +132,7 @@ class Timeline extends React.Component {
                 scale={{x: "time"}}
                 data={events}
                 dataComponent={<Event/>}
-                labelComponent={<VictoryTooltip/>}
+                labelComponent={<TooltipThumb flyoutStyle={flyoutStyle}/>}
               />
               <VictoryBar
                 data={rainData}
@@ -138,7 +143,7 @@ class Timeline extends React.Component {
                   },
                 }}
                 cornerRadius={5}
-                labelComponent={<VictoryTooltip/>}
+                labelComponent={<VictoryTooltip flyoutStyle={flyoutStyle}/>}
               />
               <VictoryAxis
                 dependentAxis

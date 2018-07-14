@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import Timeline from '../components/Timeline'
-import { subDays, getDate } from 'date-fns';
+import { subDays } from 'date-fns';
 
 const Layout = styled.section`
   display: grid;
@@ -30,6 +30,11 @@ const eventData = [...Array(50).keys()].filter(() => Math.random() > .15).map(id
     y: 1.25,
     icon: cloudiness > .3 ? 'cloud' : 'circle',
 		label: `${dateString}\n ${Math.ceil(cloudiness * 100)}% cloud cover`,
+    thumb: {
+      href: 'https://via.placeholder.com/100x100',
+      height: 100,
+      width: 100,
+    }
   };
 });
 
