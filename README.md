@@ -5,33 +5,6 @@ This POC implements the timeline component using Victory.
 of React components that wrap D3.js that provide rich tools for building
 interactive visualizations.
 
-## Highlevel Directory Structure
-
-Directory structure is inspired by the structure of `Next.js` projects. 
-
-```
-src
-└── components 
-    ├── Event.js
-    ├── Timeline.js
-    └── Tooltip.js
-```
-
-This is the meat of the implementation, components should *only* contain
-internal state. Prefer writing SFCs when possible. Shared state should come
-from props/contexts/redux.
-
-Components do not define their shape in absolute units, and will fill their container.
-
-```
-src
-└── views
-    └── Shell.js
-```
-
-Views are responsible for providing structure to a given section of a page.
-Multiple views can be combined in a single page.
-
 
 ## Implementation Notes:
 
@@ -41,3 +14,14 @@ Multiple views can be combined in a single page.
    responsibility should be refactored to an HOC that passes down
 
 
+## TODO
+
+- [ ] clicking on image icon updates chi display
+- [ ] multiple graphs + controls
+- [ ] fix issue with chart width when user is zoomed
+
+
+stretch:
+- scrubber component
+- brush support for defining CHDs
+- user event/note annotations on timeline
