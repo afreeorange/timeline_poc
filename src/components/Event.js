@@ -1,19 +1,26 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+
+// this one of the uglier bits, didn't want to eject the project and its not configured with a proper svg loader
+const icons = {
+  cloud: "m 8.341281,4.548565 c 0.063,-0.1643 0.0983,-0.34395 0.0983,-0.53128 0,-0.81381 -0.66027,-1.47407 -1.47408,-1.47407 -0.30249,0 -0.58502,0.0921 -0.81841,0.24875 -0.42534,-0.73704 -1.21919,-1.23147 -2.12973,-1.23147 -1.35738,0 -2.45679,1.09941 -2.45679,2.45679 0,0.0415 0.002,0.0829 0.003,0.12437 -0.859882,0.3025 -1.477152,1.12245 -1.477152,2.08674 0,1.22072 0.9904,2.21111 2.211112,2.21111 h 5.65062 c 1.08559,0 1.96543,-0.87984 1.96543,-1.96543 0,-0.95047 -0.67562,-1.74432 -1.57235,-1.92551 z",
+  circle: "m 4.999995,1.012825 c -2.20259,0 -3.98717,1.78458 -3.98717,3.98717 0,2.20259 1.78458,3.98718 3.98717,3.98718 2.20259,0 3.98718,-1.78459 3.98718,-3.98718 0,-2.20259 -1.78459,-3.98717 -3.98718,-3.98717 z"
+}
+
 const Event = ({x, y, datum, events}) => {
 	return (
     <g
-      transform={`translate(${x - 28}, ${y - 9}) scale(.06 .06)`}
+      transform={`translate(${x - 10}, ${y - 10}) scale(2 2)`}
       {...events}
       >
-      <FontAwesomeIcon icon={datum.icon} color="#f2f2f2"
-					style={{
-						strokeWidth: "50px",
-            stroke: "#2d64b3",
-					}}
-					fixedWidth
-			/>
+      <path
+        d={icons[datum.icon]}
+        style={{
+          fill: "#fff",
+          strokeWidth:1,
+          stroke: "#2d64b3"
+        }} />
     </g>
 	);
 };
