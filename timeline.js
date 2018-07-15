@@ -4,7 +4,14 @@
 !function(e,n){"function"==typeof define&&define.amd?define(["exports"],n):"undefined"!=typeof exports?n(exports):n(e.dragscroll={})}(this,function(e){var n,t,o=window,l=document,c="mousemove",r="mouseup",i="mousedown",m="EventListener",d="add"+m,s="remove"+m,f=[],u=function(e,m){for(e=0;e<f.length;)(m=(m=f[e++]).container||m)[s](i,m.md,0),o[s](r,m.mu,0),o[s](c,m.mm,0);for(f=[].slice.call(l.getElementsByClassName("dragscroll")),e=0;e<f.length;)!function(e,m,s,f,u,a){(a=e.container||e)[d](i,a.md=function(n){e.hasAttribute("nochilddrag")&&l.elementFromPoint(n.pageX,n.pageY)!=a||(f=1,m=n.clientX,s=n.clientY,n.preventDefault())},0),o[d](r,a.mu=function(){f=0},0),o[d](c,a.mm=function(o){f&&((u=e.scroller||e).scrollLeft-=n=-m+(m=o.clientX),u.scrollTop-=t=-s+(s=o.clientY),e==l.body&&((u=l.documentElement).scrollLeft-=n,u.scrollTop-=t))},0)}(f[e++])};"complete"==l.readyState?u():o[d]("load",u,0),e.reset=u});
 
 const scrollDuration = 500;
+const timelineNodes = document.querySelectorAll('.node');
 const nodesWithData = document.querySelectorAll('.node-with-data');
+const theWidth = timelineNodes.length * timelineNodes[0].offsetWidth + 'px';
+
+// Set width of timeline and graph
+// TODO: Do this in CSS
+document.getElementById('timeline').style.width = theWidth;
+document.getElementById('graphs').style.width = theWidth;
 
 // TODO: Make this sane.
 // https://gist.github.com/gre/1650294
@@ -35,8 +42,8 @@ function smoothScroll(element, to, duration) {
 }
 
 function hideAllPopups() {
-    document.querySelectorAll('.popup').forEach(p => {
-        p.style.visibility = 'hidden';
+    document.querySelectorAll('.popup').forEach(popup => {
+        popup.style.visibility = 'hidden';
     });
 }
 

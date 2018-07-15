@@ -47,7 +47,6 @@ a {
 }
 
 #timeline {
-    width: 2700px;
     padding: 0 0 2.75em 0;
 }
 
@@ -137,10 +136,10 @@ a {
     position: relative;
     background: #e6e6e6;
     transition: box-shadow 0.25s;
+    border-radius: 20px;
 }
 .node-with-data:hover {
     background: #d1e5f0;
-    border-radius: 20px;
     box-shadow: 0px 0px 0px 6px #d1e5f0;
 }
 .node-with-data > i.far, i.fas {
@@ -203,7 +202,6 @@ a {
 .hide {
     /*display: none;*/
 }
-
 .verticals {
     background: url('verticals.png') repeat-x;
 }
