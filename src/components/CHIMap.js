@@ -16,6 +16,8 @@ const PolyMock = styled.section`
 
 export default ({activeDate}) => (
   <PolyMock>
+    <h1>
     {activeDate.toLocaleDateString('en-US', {month:  'numeric', day: 'numeric'})}
+    </h1>
   </PolyMock>
 )
