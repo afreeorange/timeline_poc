@@ -1,25 +1,47 @@
+/*
+- Graph scaling
+- Timeline 
+- Year
++ Draggable
+- Visible scrollbar
+- React Component
+- Styling
+*/
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    scroll-behavior: smooth;
+}
+a {
+    text-decoration: none;
+    color: #336699;
+}
+
+#timeline-component {
+    /*display: flex;
+    flex-direction: column;*/
+    border: 1px solid #ccc;
 }
 #timeline-wrapper {
-    border: 1px solid #ccc;
     overflow-x: scroll;
     overflow-y: hidden;
-    background: #eee;
+    border-left: 1px dotted #ccc;
+}
+#timeline-year {
+    float: left;
+    text-align: center;
+    padding: 1.5em 1em;
 }
 #timeline {
-    width: 3000px;
-    height: auto;
+    width: 2700px;
     cursor: move;
-    padding-top: 100px;
-    position: relative;
+    padding-top: 75px;
 }
-.track {
-    border-top: 1px solid red;
-    border-bottom: 1px solid red;
+
+#track {
+    /*border-top: 1px solid red;
+    border-bottom: 1px solid red;*/
 }
-.track:after {
+#track:after {
     height: 0; 
     display: block; 
     clear: both;
@@ -27,13 +49,14 @@ body {
     visibility: hidden; 
 }
 .node {
-    width: 25px;
+    width: 27px;
     height: 25px;
     background: #ccc;
     position: relative;
     float: left;
-    border-right: 1px solid #111;
     cursor: pointer;
+    /*border-right: 1px solid #111;
+    box-sizing: border-box;*/
 }
 .node > .date {
     width: 41px;
@@ -106,25 +129,26 @@ body {
     background: blue;
 }
 
+
+/* Track Controls */
+
 #controls {
     font-size: 0.75em;
-    clear: both;
     padding: 0.5em;
-}
-#controls:after {
-    content: ".";
-    height: 0;
-    visibility: hidden;
-    display: block; 
-    clear: both;
-}
-#ahead {
-    float: left;
-}
-#behind {
-    float: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px dotted #ccc;
 }
 
+/* Graphing */
+
 #graph-wrapper {
-    padding-top: 2em;
+    margin-top: 2em;
+}
+#graph-wrapper * {
+    margin-top: 0.5em;
+}
+.graph-line-offset {
+    margin-left: -13px;
 }

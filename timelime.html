@@ -4,10 +4,6 @@
         <link rel="stylesheet" href="timeline.css">
         <!-- Suggestion: Multiples of 5 ONLY! 30 and 1 can be too
                     close together -->
-        <!-- 
-        TODO:
-            Scrollbar 
-        -->
     </head>
     <body>
         <div id="timeline-component">
@@ -19,80 +15,183 @@
                     <a href="#">End 6/4/18 &rarr;</a>
                 </div>
             </div>
-            <div id="timeline-wrapper">
-                <div id="timeline">
-                    <div class="track">
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node node-with-date node-with-data winter">
-                            <div class="date">5/5</div>
-                            <div class="popup">
-                                <strong>6/10/18</strong>
-                                <p>15% cloud cover</p>
+            <div id="timeline-flex-wrapper">
+                <div id="timeline-year">2018</div>
+                <div id="timeline-wrapper" class="dragscroll">
+                    <div id="timeline">
+                        <div id="track">
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date node-with-data winter">
+                                <div class="date">5/5</div>
+                                <div class="popup">
+                                    <strong>6/10/18</strong>
+                                    <p>15% cloud cover</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node node-with-date">
-                            <div class="date">5/10</div>
-                        </div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node node-with-data summer">
-                            <div class="popup">
-                                <strong>6/10/18</strong>
-                                <p>15% cloud cover</p>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">5/10</div>
                             </div>
-                        </div>
-                        <div class="node"></div>
-                        <div class="node node-with-date">
-                            <div class="date">5/15</div>
-                        </div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node node-with-date">
-                            <div class="date">5/20</div>
-                        </div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node node-with-date">
-                            <div class="date">5/25</div>
-                        </div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node node-with-date">
-                            <div class="date">5/30</div>
-                        </div>
-                        <div class="node"></div>
-                        <div class="node node-with-date node-with-data summer">
-                            <div class="popup">
-                                <strong>6/10/18</strong>
-                                <p>15% cloud cover</p>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-data summer">
+                                <div class="popup">
+                                    <strong>6/10/18</strong>
+                                    <p>15% cloud cover</p>
+                                </div>
                             </div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">5/15</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">5/20</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">5/25</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">5/30</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node node-with-date node-with-data summer">
+                                <div class="popup">
+                                    <strong>6/10/18</strong>
+                                    <p>15% cloud cover</p>
+                                </div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">6/5</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date node-with-data winter">
+                                <div class="date">5/5</div>
+                                <div class="popup">
+                                    <strong>6/10/18</strong>
+                                    <p>15% cloud cover</p>
+                                </div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">5/10</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-data summer">
+                                <div class="popup">
+                                    <strong>6/10/18</strong>
+                                    <p>15% cloud cover</p>
+                                </div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">5/15</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">5/20</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">5/25</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">5/30</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node node-with-date node-with-data summer">
+                                <div class="popup">
+                                    <strong>6/10/18</strong>
+                                    <p>15% cloud cover</p>
+                                </div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">6/5</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">5/30</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node node-with-date node-with-data summer">
+                                <div class="popup">
+                                    <strong>6/10/18</strong>
+                                    <p>15% cloud cover</p>
+                                </div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node node-with-date">
+                                <div class="date">6/5</div>
+                            </div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
                         </div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node node-with-date">
-                            <div class="date">6/5</div>
-                        </div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
-                        <div class="node"></div>
+                    </div>
+
+                    
+                    <div id="graph-wrapper">
+                        <div id="rain"></div>
+                        <div id="graph-a" class="graph-line-offset"></div>
+                        <div id="graph-b" class="graph-line-offset"></div>
                     </div>
                 </div>
-                <div id="graph-wrapper"></div>
+
             </div>
         </div>
         <script src="https://shutterstock.github.io/rickshaw/vendor/d3.v3.js"></script>
