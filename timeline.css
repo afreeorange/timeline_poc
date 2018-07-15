@@ -3,16 +3,17 @@
 - Timeline 
 + Year
 + Draggable
-- Visible scrollbar
++ Visible scrollbar
 - React Component
-- Styling
++ Styling
 - Click to remove popup
-
 - Redo this whole thing in Flexbox/Grid
+
+Suggestion: Multiples of 5 ONLY! 30 and 1 can be too close together
 */
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 a {
     text-decoration: none;
