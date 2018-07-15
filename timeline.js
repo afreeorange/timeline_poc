@@ -40,6 +40,12 @@ function hideAllPopups() {
     });
 }
 
+function clearActiveNodes() {
+    nodesWithData.forEach(node => {
+        node.classList.remove('active-node');
+    });
+}
+
 // Each node, when clicked will...
 nodesWithData.forEach(node => {
     node.addEventListener('click', event => {
@@ -48,7 +54,13 @@ nodesWithData.forEach(node => {
 
         // will show its child popup...
         let nodePopup = node.getElementsByClassName('popup')[0];
-        nodePopup.style.visibility = 'visible';        
+        nodePopup.style.visibility = 'visible';
+
+        // clear all active nodes
+        clearActiveNodes();
+
+        // set active class
+        node.classList.add('active-node');
     });
 });
 
@@ -62,7 +74,11 @@ document.getElementById('behind').addEventListener('click', e => {
 });
 
 
-// Draw some random graphs. First, count all nodes
+// Set the graph bounds
+// TODO: Do this in CSS.
+document.getElementById('graphs').style.width = document.getElementById('timeline').getBoundingClientRect().width + 'px';
+
+// Draw some random graphs
 const nodeCount = document.querySelectorAll('.node').length;
 
 function getRandomIntInclusive(min, max) {
@@ -82,10 +98,10 @@ function getRandomDataset(min, max) {
     return data;
 }
 
-var rainGraph = new Rickshaw.Graph({
-    element: document.getElementById('rain'),
+let randomGraphA = new Rickshaw.Graph({
+    element: document.getElementById('graph-a'),
     renderer: 'bar',
-    width: 2592,
+    width: 2700,
     height: 50,
     series: [{
         data: getRandomDataset(0, 3),
@@ -93,12 +109,12 @@ var rainGraph = new Rickshaw.Graph({
     }]
 });
 
-rainGraph.render();
+randomGraphA.render();
 
-var randomGraphA = new Rickshaw.Graph({
-    element: document.getElementById('graph-a'),
+let randomGraphB = new Rickshaw.Graph({
+    element: document.getElementById('graph-b'),
     renderer: 'area',
-    width: 2592,
+    width: 2700,
     height: 50,
     series: [{
         data: getRandomDataset(0, 12),
@@ -106,12 +122,12 @@ var randomGraphA = new Rickshaw.Graph({
     }]
 });
 
-randomGraphA.render();
+randomGraphB.render();
 
-var randomGraphA = new Rickshaw.Graph({
-    element: document.getElementById('graph-b'),
+let randomGraphC = new Rickshaw.Graph({
+    element: document.getElementById('graph-c'),
     renderer: 'lineplot',
-    width: 2592,
+    width: 2700,
     height: 50,
     series: [{
         data: getRandomDataset(4, 8),
@@ -119,4 +135,4 @@ var randomGraphA = new Rickshaw.Graph({
     }]
 });
 
-randomGraphA.render();
+randomGraphC.render();

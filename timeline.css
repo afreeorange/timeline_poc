@@ -1,11 +1,14 @@
 /*
 - Graph scaling
 - Timeline 
-- Year
++ Year
 + Draggable
 - Visible scrollbar
 - React Component
 - Styling
+- Click to remove popup
+
+- Redo this whole thing in Flexbox/Grid
 */
 
 body {
@@ -20,26 +23,44 @@ a {
     /*display: flex;
     flex-direction: column;*/
     border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: move;
 }
+#timeline-component *::-webkit-scrollbar {
+    height: 3px;
+}
+#timeline-component *::-webkit-scrollbar-thumb {
+    background: #666;
+}
+
 #timeline-wrapper {
     overflow-x: scroll;
     overflow-y: hidden;
     border-left: 1px dotted #ccc;
+    background: #f9f9f9;
 }
+
 #timeline-year {
     float: left;
     text-align: center;
-    padding: 1.5em 1em;
+    padding: 5em 1em 1em 1em;
 }
+
 #timeline {
     width: 2700px;
-    cursor: move;
-    padding-top: 75px;
+    padding: 0 0 2.75em 0;
+}
+
+#popup-track {
+    height: 75px;
+    background: #f9f9f9;
+    z-index: -999;
 }
 
 #track {
     /*border-top: 1px solid red;
     border-bottom: 1px solid red;*/
+    background: #ccc url('track-bg.png') center repeat-x;
 }
 #track:after {
     height: 0; 
@@ -48,14 +69,15 @@ a {
     content: " "; 
     visibility: hidden; 
 }
+
 .node {
     width: 27px;
     height: 25px;
-    background: #ccc;
     position: relative;
     float: left;
     cursor: pointer;
-    /*border-right: 1px solid #111;
+    background: transparent url('node-bg.png') center no-repeat;
+    /*border-right: 1px dotted #ccc;
     box-sizing: border-box;*/
 }
 .node > .date {
@@ -63,23 +85,21 @@ a {
     position: absolute;
     font-size: 0.75em;
     bottom: -20px;
-    left: -9px;
-    border: 1px dotted #000;
+    left: -8px;
     text-align: center;
+    color: #666;
+    background: #f9f9f9;
 }
-
-/*TODO: transitions of visibility*/
-.node > .popup {
+.node > .popup { /* TODO: transitions of visibility ?*/
     background: white;
-    border-radius: 5px;
     border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px #999;
+    box-shadow: 0px 0px 2px #999;
     font-size: 0.75em;
     left: -40px;
     padding: 10px 2px;
     position: absolute;
     text-align: center;
-    top: -65px;
+    top: -60px;
     visibility: hidden;
     width: 100px;
 }
@@ -95,7 +115,6 @@ a {
     position: absolute;
     pointer-events: none;
 }
-
 .node > .popup:after {
     border-color: rgba(255, 255, 255, 0);
     border-top-color: #ffffff;
@@ -111,24 +130,51 @@ a {
 
 /* Because the :has pseudoclass is not supported yet */
 .node-with-date {
-    background: #999;
+    background: transparent url('date-node-bg.png') center no-repeat;
+}
+
+.node-with-data {
+    position: relative;
+    background: #e6e6e6;
+    transition: box-shadow 0.25s;
+}
+.node-with-data:hover {
+    background: #d1e5f0;
+    border-radius: 20px;
+    box-shadow: 0px 0px 0px 6px #d1e5f0;
+}
+.node-with-data > i.far, i.fas {
+    color: #336699;
+    position: absolute;
+}
+.node-with-data:hover > i.far, i.fas {
+    font-weight: bold;
+}
+.node-with-data .fa-circle {
+    top: 2;
+    left: 2;
+    font-size: 1.35em;
+}
+.node-with-data i.fa-snowflake {
+    top: 3;
+    left: 3;
+    font-size: 1.35em;
+}
+.node-with-data i.fa-cloud {
+    top: 3;
+    left: 1;
+    font-size: 1.25em;
+}
+.active-node {
+    background: #a5c8dc;
+    border-radius: 20px;
+    box-shadow: 0px 0px 0px 6px #a5c8dc;
 }
 
 .node > .popup > p {
     margin: 0;
     padding: 0;
 }
-.node-with-data:hover {
-    background: #111;
-}
-
-.summer {
-    background: yellow;
-}
-.winter {
-    background: blue;
-}
-
 
 /* Track Controls */
 
@@ -142,13 +188,22 @@ a {
 }
 
 /* Graphing */
-
-#graph-wrapper {
-    margin-top: 2em;
-}
-#graph-wrapper * {
-    margin-top: 0.5em;
+#graphs * {
+    padding-top: 0.25em;
 }
 .graph-line-offset {
-    margin-left: -13px;
+    margin-left: -12px;
+}
+.rickshaw_graph rect {
+    border-radius: 3px;
+}
+
+
+/* Miscellaneous */
+.hide {
+    /*display: none;*/
+}
+
+.verticals {
+    background: url('verticals.png') repeat-x;
 }
