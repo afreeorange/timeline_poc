@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
-import Timeline from '../components/Timeline'
-import { subDays } from 'date-fns';
+import Timeline from '../containers/TimelineContainer'
+import CHIMap from '../containers/CHIContainer'
+
 
 const Layout = styled.section`
   display: grid;
@@ -18,46 +19,20 @@ const TimelineWrapper = styled.div`
 	background: #f9f9f9;
 `
 
-const today = new Date('2018-07-12T08:00:00.000Z');
-
-const eventData = [...Array(50).keys()].filter(() => Math.random() > .15).map(idx => {
-	const datum = subDays(today, idx);
-	const dateString = datum.toLocaleDateString('en-US', {month:  'numeric', day: 'numeric'});
-  const cloudiness = Math.random() / 2;
-
-  return {
-    x: datum,
-    y: 1.25,
-    icon: cloudiness > .3 ? 'cloud' : 'circle',
-		label: `${dateString}\n ${Math.ceil(cloudiness * 100)}% cloud cover`,
-    thumb: {
-      href: 'https://via.placeholder.com/100x100',
-      height: 100,
-      width: 100,
-    }
-  };
-});
-
-const rainData = [...Array(50).keys()].filter(() => Math.random() > .5).map(idx => {
-  const datum = subDays(today, idx);
-  const precip = Math.ceil(Math.random()*3);
-  return {
-    x: datum,
-    y: precip/3,
-    label: `${precip} inches`
-  };
-});
+const CHIWrapper = styled.div`
+  grid-area: "map";
+	background: #222;
+`
 
 
 const shell = () => {
   return (
     <Layout>
+      <CHIWrapper>
+        <CHIMap />
+      </CHIWrapper>
       <TimelineWrapper>
-      	<Timeline
-      	  events={eventData}
-      	  rainData={rainData}
-      	  startDate={today}
-      	/>
+      	<Timeline />
       </TimelineWrapper>
     </Layout>
   )

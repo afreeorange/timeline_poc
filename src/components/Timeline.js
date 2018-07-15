@@ -77,7 +77,7 @@ class Timeline extends React.Component {
   }
 
   render() {
-    const {events, rainData, startDate} = this.props;
+    const {events, rainData, startDate, activeDate, setDateActive} = this.props;
     const tickData = getTicks(startDate);
 
     return (
@@ -128,11 +128,23 @@ class Timeline extends React.Component {
                   }
                 }}
               />
+
               <VictoryScatter
                 scale={{x: "time"}}
                 data={events}
-                dataComponent={<Event/>}
+                dataComponent={<Event activeDate={activeDate}/>}
                 labelComponent={<TooltipThumb flyoutStyle={flyoutStyle}/>}
+                events={[
+                  {
+                    target: "data",
+                    eventHandlers: {
+                      onClick() {
+                        // this is hideous
+                        setDateActive(arguments[1].datum.x)
+                      }
+                    }
+                  }
+                ]}
               />
               <VictoryBar
                 data={rainData}
