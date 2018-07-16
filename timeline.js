@@ -111,12 +111,16 @@ let randomGraphA = new Rickshaw.Graph({
     width: 2700,
     height: 50,
     series: [{
-        data: getRandomDataset(0, 3),
+        data: getRandomDataset(1, 3),
         color: 'steelblue'
     }]
 });
 
 randomGraphA.render();
+let bars = document.getElementById('graph-a').querySelectorAll('rect');
+bars.forEach(bar => {
+    bar.style.width = '5px';
+});
 
 let randomGraphB = new Rickshaw.Graph({
     element: document.getElementById('graph-b'),

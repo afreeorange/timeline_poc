@@ -191,11 +191,11 @@ a {
 #graphs * {
     padding-top: 0.25em;
 }
+.graph-bar-offset {
+    margin-left: -15px;
+}
 .graph-line-offset {
     margin-left: -12px;
-}
-.rickshaw_graph rect {
-    border-radius: 3px;
 }
 
 
