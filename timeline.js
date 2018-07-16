@@ -129,7 +129,7 @@ let randomGraphB = new Rickshaw.Graph({
     width: 2700,
     height: 50,
     series: [{
-        data: getRandomDataset(2, 12),
+        data: getRandomDataset(2, 4),
         color: '#cae2f7'
     }]
 });
