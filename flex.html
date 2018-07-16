@@ -1,0 +1,169 @@
+<html>
+    <head>
+        <title>Flex Text, lol</title>
+        <style>
+            body {
+                font-family: "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            }
+            a {
+                text-decoration: none;
+            }
+
+            #timeline-component {
+                border: 1px solid #ccc;
+            }
+            #timeline-component *::-webkit-scrollbar {
+                height: 3px;
+            }
+            #timeline-component *::-webkit-scrollbar-thumb {
+                background: #666;
+            }
+
+
+            #top-scrubber {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                border-bottom: 1px solid #ccc;
+                padding: 0.25em;
+            }
+            #timeline-scrub-right {
+                text-align: right;
+            }
+
+            #timeline-wrapper {
+                display: grid;
+                grid-template-columns: 100px auto;
+            }
+
+            #timeline-legend {
+                text-align: center;
+            }
+
+            #timeline-year {
+                margin-top: 50px;
+            }
+
+            #timeline-track-wrapper {
+                overflow-y: hidden;
+                overflow-x: scroll;
+                grid-auto-columns: auto;
+            }
+
+            #timeline {
+                height: 200px;
+                width: 2000px;
+                background: #ccc;
+            }
+
+            #popup-area {
+                height: 50px;
+                background: red;
+            }
+
+            #node-collection {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, 27px);
+            }
+
+            .node {
+                box-sizing: border-box;
+                border-right: 1px solid #666;
+                background: url('assets/middle-dotted.png') center repeat-y;
+                max-width: 27px;
+                height: 100vh;
+            }
+            .node:after {
+                
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="timeline-component">
+            <div id="top-scrubber">
+                <div id="timeline-scrub-left">
+                    <a href="#">&larr; Start</a>
+                </div>
+                <div id="timeline-scrub-right">
+                    <a href="#">End &rarr;</a>
+                </div>
+            </div>
+            <div id="timeline-wrapper">
+                <div id="timeline-legend">
+                    <div id="timeline-year">2018</div>
+                    <div class="graph-label" id="graph-a-label">Precip</div>
+                </div>
+                <div id="timeline-track-wrapper">
+                    <div id="timeline">
+                        <div id="popup-area"></div>
+                        <div id="node-collection">
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                        </div>
+                    </div>
+
+                    <div class="graph" id="graph-a"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

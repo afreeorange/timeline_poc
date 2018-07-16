@@ -60,7 +60,7 @@ a {
 #track {
     /*border-top: 1px solid red;
     border-bottom: 1px solid red;*/
-    background: #ccc url('track-bg.png') center repeat-x;
+    background: #ccc url('assets/track-bg.png') center repeat-x;
 }
 #track:after {
     height: 0; 
@@ -76,7 +76,7 @@ a {
     position: relative;
     float: left;
     cursor: pointer;
-    background: transparent url('node-bg.png') center no-repeat;
+    background: transparent url('assets/node-bg.png') center no-repeat;
     /*border-right: 1px dotted #ccc;
     box-sizing: border-box;*/
 }
@@ -130,7 +130,7 @@ a {
 
 /* Because the :has pseudoclass is not supported yet */
 .node-with-date {
-    background: transparent url('date-node-bg.png') center no-repeat;
+    background: transparent url('assets/date-node-bg.png') center no-repeat;
 }
 
 .node-with-data {
@@ -204,5 +204,5 @@ a {
     /*display: none;*/
 }
 .verticals {
-    background: url('verticals.png') repeat-x;
+    background: url('assets/verticals.png') repeat-x;
 }
