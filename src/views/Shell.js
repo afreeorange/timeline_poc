@@ -12,6 +12,7 @@ const Layout = styled.section`
   grid-template-rows: [top] 70vh [v-divider] 30vh [bottom];
   grid-template-columns: [left] 100vw [right];
   grid-template-areas: "map" "timeline";
+  overflow: hidden;
 `
 
 const TimelineWrapper = styled.div`
