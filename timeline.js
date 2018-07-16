@@ -125,11 +125,12 @@ bars.forEach(bar => {
 let randomGraphB = new Rickshaw.Graph({
     element: document.getElementById('graph-b'),
     renderer: 'area',
+    stroke: true,
     width: 2700,
     height: 50,
     series: [{
-        data: getRandomDataset(0, 12),
-        color: 'steelblue'
+        data: getRandomDataset(2, 12),
+        color: '#cae2f7'
     }]
 });
 
